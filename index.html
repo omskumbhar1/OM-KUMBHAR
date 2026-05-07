@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OM | 3D Grid Portfolio</title>
+<title>OM Kumbhar</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
---glass: rgba(255,255,255,0.03);
---border: rgba(255,255,255,0.08);
+--glass: rgba(255,255,255,0.06);   /* slightly more visible */
+--glass-border: rgba(255,255,255,0.18);
 --text:#ffffff;
 --muted:#9ca3af;
 }
@@ -29,51 +29,68 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* ================= 3D GRID BACKGROUND ================= */
+/* ================= PREMIUM BLACK GRID BACKGROUND ================= */
 
 .background{
 position:fixed;
 inset:0;
 z-index:-1;
-perspective:1000px;
 overflow:hidden;
 background:#000;
 }
 
+/* Moving White Grid */
 .grid{
 position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
+inset:0;
 
 background:
-linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
 
-background-size:60px 60px;
+background-size:50px 50px;
 
-transform:rotateX(65deg) translateZ(0);
-animation:moveGrid 12s linear infinite;
+/* depth fade */
+mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+-webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+
+animation:gridMove 40s linear infinite;
 }
 
-@keyframes moveGrid{
+@keyframes gridMove{
 from{
 background-position:0 0, 0 0;
 }
 to{
-background-position:0 600px, 600px 0;
+background-position:500px 500px, 500px 500px;
 }
 }
+
+/* Subtle center spotlight */
+.background::after{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at center, rgba(255,255,255,.06), transparent 60%);
+pointer-events:none;
+}
+
 
 /* ================= GLASS ================= */
 
 .glass{
-background:var(--glass);
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-border:1px solid var(--border);
+background:linear-gradient(
+to bottom right,
+rgba(255,255,255,.12),
+rgba(255,255,255,.04)
+);
+backdrop-filter:blur(22px);
+-webkit-backdrop-filter:blur(22px);
+border:1px solid var(--glass-border);
 border-radius:20px;
+box-shadow:
+0 8px 32px rgba(0,0,0,.6),
+inset 0 1px 0 rgba(255,255,255,.25);  /* white inner highlight */
 }
 
 /* ================= NAV ================= */
@@ -230,6 +247,7 @@ color:#6b7280;
 <nav class="glass">
   <strong>OM</strong>
   <div>
+    <a href="#Achivments">Achivments</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
@@ -248,19 +266,31 @@ color:#6b7280;
   </div>
 </header>
 
+<section id="Achivments">
+  <h2>Achivments</h2>
+  <div class="skills">
+    <div class="skill glass">60% in class 10</div>
+    <div class="skill glass"><lu>Upcoming...</lu></></div>
+  </div>
+</section>
+
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
     <div class="project glass">
-      <h3>AI Chat Assistant</h3>
-      <p>Voice + text assistant that automates workflow and productivity.</p>
+      <h3>Upcoming</h3>
+      <p>Somthing is Cooking</p>
     </div>
     <div class="project glass">
-      <h3>Anonymous Chat App</h3>
-      <p>Private chat platform with moderation and safety features.</p>
+      <h3>BharatCric</h3>
+      <p>A Cricket Scoring app</p>
     </div>
     <div class="project glass">
-      <h3>E-Commerce Website</h3>
+      <h3>SpotX</h3>
+      <p></p>
+    </div>
+    <div class="project glass">
+      <h3>Space AI</h3>
       <p>Product listing, cart, orders and payment system.</p>
     </div>
   </div>
