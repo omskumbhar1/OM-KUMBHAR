@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className += ' js';</script>
  
 <!-- ================================================================== -->
 <!--  WHEN YOU MOVE TO YOUR OWN DOMAIN LATER:                           -->
@@ -171,6 +172,15 @@ a{color:inherit;text-decoration:none;}
   border-radius:20px;
 }
  
+/* Nav needs a real background so it stays readable over the photo (and when blur is off) */
+nav.glass{background:rgba(12,13,17,.72);border-color:rgba(255,255,255,.12);}
+ 
+/* Fallback: if the browser/preview can't blur, make glass panels opaque enough to read */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass{background:rgba(20,22,28,.86);}
+  nav.glass{background:rgba(10,11,14,.94);}
+}
+ 
 /* ================= NAV ================= */
 nav{
   position:fixed;top:18px;left:50%;transform:translateX(-50%);
@@ -278,8 +288,8 @@ footer a{color:var(--muted);transition:color .25s;}
 footer a:hover{color:#fff;}
  
 /* ================= REVEAL ================= */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1;transform:none;}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+.js .reveal.in{opacity:1;transform:none;}
  
 /* ================= RESPONSIVE ================= */
 @media(max-width:820px){
@@ -290,16 +300,16 @@ footer a:hover{color:#fff;}
   .about,.contact{padding:32px 24px;}
 }
 @media(max-width:560px){
-  nav{padding:11px 16px;}
-  .nav-links{gap:1px;}
-  .nav-links a{padding:6px 8px;font-size:.84rem;}
-  .brand{font-size:.98rem;}
-  main{padding-top:130px;}
+  nav{padding:11px 14px;}
+  .nav-links{gap:0;}
+  .nav-links a{padding:6px 7px;font-size:.82rem;}
+  .brand{font-size:.96rem;}
+  main{padding-top:142px;}
 }
  
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
-  .reveal{opacity:1;transform:none;}
+  .reveal,.js .reveal{opacity:1 !important;transform:none !important;}
 }
 </style>
 </head>
@@ -440,4 +450,3 @@ document.querySelectorAll('section[id]').forEach(s=>navIO.observe(s));
  
 </body>
 </html>
- 
