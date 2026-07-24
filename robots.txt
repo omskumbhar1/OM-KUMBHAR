@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omskumbhar1.github.io/OM-KUMBHAR/sitemap.xml

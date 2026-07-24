@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — Om Kumbhar</title>
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#eceee8" />
+<meta name="color-scheme" content="light" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#eceee8; --ink:#16171b; --ink-soft:#5c6067; --mark-solid:#efc439;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --serif:"Newsreader", Georgia, serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100svh; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); line-height:1.6;
+  display:grid; place-items:center; padding:clamp(24px,6vw,64px);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+.wrap{max-width:44ch;}
+.code{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-soft); margin-bottom:22px;
+}
+h1{
+  font-family:var(--display); font-weight:800; letter-spacing:-.035em;
+  font-size:clamp(2.4rem,8vw,4rem); line-height:.95; margin-bottom:20px;
+}
+p{font-size:1.1rem;color:var(--ink-soft);}
+.back{
+  display:inline-block; margin-top:30px; font-family:var(--mono);
+  font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+  text-decoration:none; padding:13px 22px; border:1px solid var(--ink);
+  transition:background .2s,color .2s;
+}
+.back:hover{background:var(--ink);color:var(--paper);}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="code">Error 404</p>
+    <h1>This page doesn't exist.</h1>
+    <p>The link may be out of date, or the address might have a typo in it. Everything I've built is on the home page.</p>
+    <a class="back" href="https://omskumbhar1.github.io/OM-KUMBHAR/">Go to the home page</a>
+  </main>
+</body>
+</html>
